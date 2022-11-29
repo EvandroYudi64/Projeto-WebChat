@@ -10,7 +10,7 @@ CREATE TABLE `usuario` (
 
 
 CREATE TABLE `mensagem` (
-  `id_mensagem` int(11) NOT NULL,
+  `id_mensagem` int(255) NOT NULL,
   `saida` varchar(255) NOT NULL,
   `entrada` varchar(255) NOT NULL,
   `messagens` varchar(5000) NOT NULL
