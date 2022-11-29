@@ -13,10 +13,10 @@ if (!isset($_SESSION['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Messages</title>
-    <!-- css linked -->
+    
     <link rel="stylesheet" href="./css/chatarea.css">
 
-    <!-- fontawesome CDN -->
+    
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
@@ -25,8 +25,8 @@ if (!isset($_SESSION['id'])) {
         <section class="chat-area">
             <header>
             <a href="contatos.php">
-                <!-- arrow icon -->
-                <i class="fas fa-arrow-left"></i>
+            
+                <i class="fas fa-arrow-left" style="color: rgb(237, 86, 206);"></i>
             </a>
             <header>
                 <?php
@@ -55,14 +55,12 @@ if (!isset($_SESSION['id'])) {
             <div id="mainSection" class="chat-box">
             
             </div>
-        
-            <!-- input messages -->
             <form action="" id="typingArea">
             <div class="typing-area">
                 <input type="text" name="saida" placeholder="Escreva sua mensagem aqui" id="saida" class="outgoing_id" autocomplete="off" value="<?php echo $myid; ?>" hidden>
                 <input type="text" name="entrada" placeholder="Escreva sua mensagem aqui" id="entrada" class="incoming_id" autocomplete="off" value="<?php echo $userid?>" hidden>
-                <input type="text" name="typingField" placeholder="Escreva sua mensagem aqui" id="typingField" autocomplete="off">
-                <input type="submit" value="send" id="sendMessage">
+                <input type="text" name="typingField" placeholder="Escreva sua mensagem aqui" id="typingField" autocomplete="off" >
+                <input type="submit" value="Enviar" id="sendMessage" style="background-color: rgb(237, 86, 206) ; color:#fff;">
             </div>
             </form>
     </div>
