@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+body{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 0;
+}
+.main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.logo{
+    width: 30vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(214, 70, 230);
+}
+.logo > h1{
+    color: rgb(69, 4, 60);
+}
+.form{
+    width: 70vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.formCad{
+    width: 70vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.card{
+    width: 60%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    border: 1px solid pink;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px;
+}
+.card > h1{
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    margin: 0;
+}
+.card > form{
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    margin: 0;
+}
+.txtfield{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+}
+.txtfield > input{
+    width: 100%;
+    border: 1px solid rgb(109, 109, 109);
+    border-radius:10px;
+    padding: 15px;
+    background: white;
+    color: black;
+    font-size: 12pt;
+    box-shadow: 0px 10px 40px #65656556;
+    outline: none;
+    box-sizing: border-box;
+
+}
+.txtfield > label{
+    color: rgba(217, 0, 235, 1);
+    margin-bottom: 10px;
+}
+.txtfield > input::placeholder{
+    opacity: 0.5;
+    color: rgb(60, 58, 58); 
+}
+.erromsg{
+    color: #721c24;
+    width: 100%;
+    background: #f8d7da;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #f5c6cb;
+
+}
+.btn-login{
+    width: 100%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: 1px solid rgb(214, 70, 230);
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: rgb(214, 70, 230);
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px #00000056;
+}
+.btn-cadastro{
+    width: 100%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: 1px solid rgb(214, 70, 230);
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: rgb(214, 70, 230);
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px #00000056;
+}
+.btn-cadastrar{
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 16px 0px;
+    margin: 25px;
+    border: 1px solid rgb(214, 70, 230);
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #e6e6e6;
+    background-color: rgb(214, 70, 230);
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px #00000056;
+}
+.link{
+    text-align: center;
+    margin: 10px 0;
+    font-size: 16px;
+}
+.link > a{
+    color: #333;
+}
+.titleCad{
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+    width: 100%;
+}
+.stylename{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.stylename .txtfield:first-child{
+    flex-direction: column;
+}
+.stylename .txtfield:last-child{
+    margin-left: 0;
+}
+.chatview{
+    border: 1px solid black;
+}
+
+
+/*pagina principal chat*/
+
+.usuarios{
+    width: 90%;
+    padding: 25px 30px;
+}
+.usuarios header{
+    display: flex;
+    align-items: center;
+    padding-bottom: 0px;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+.mainchat img{
+    object-fit: cover;
+    border-radius: 50%;
+}
+.usuarios header .conteudo img{
+    height: 50px;
+    width: 50px;
+
+}
+.usuarios header .conteudo{
+    display: flex;
+}
+.usuarios header .detalhado{
+    margin-left: 15px;
+}
+.usuarios header .detalhado span{
+    font-size: 18px;
+    font-weight: 500px;
+}
+.usuarios header .sair{
+    color: white;
+    font-size: 17px;
+    padding: 7px 15px;
+    background-color: #333;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.mainchat{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.mainchat .contatos-user{
+    width: 30vw;
+    height: 100vh;
+    display: flex;
+    justify-content:flex-start;
+    align-items:center;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: gray;
+}
+.mainchat .pagina-chat{
+    width: 70vw;
+    height: 100vh;
+    display: flex;
+    justify-content:flex-start;
+    align-items:center;
+    flex-direction: column;
+}
+.usuarios .pesquisa{
+
+    margin: 20px 10px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.usuarios .pesquisa .text-chat{
+    font-size: 18px;
+
+}
+.usuarios .pesquisa input{
+    position: absolute;
+    height: 30px;
+    width: calc(100% - 75px);
+    border: 1px solid gray;
+    border-radius: 5px 0 0 5px;
+    padding: 0 13px;
+    font-size: 16px;
+    outline: none;
+}
+.usuarios .pesquisa button{
+    width: 47px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 0 5px 5px 0;
+    color: #fff;
+    background: #333;
+}
+
+
+
+.listausuarios{
+    max-height: 550px;
+    overflow-y: auto;
+}
+.listausuarios::-webkit-scrollbar{
+    width: 0px;
+}
+.listausuarios a{
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    text-decoration: none;
+    color: black;
+}
+.listausuarios a .conteudo img{
+    height: 40px;
+    width: 40px;
+}
+.listausuarios a .conteudo{
+    display: flex;
+}
+.listausuarios a .status-dot{
+    font-size: 12px;
+    color: #468669;
+}
+.listausuarios a .status-dot.offline{
+    font-size: 12px;
+    color: #ccc;
+}
+.listausuarios a .detalhado{
+    margin-left: 15px;
+}
+.listausuarios a .conteudo a1{
+    color: #67676a;
+}
+
+
+
