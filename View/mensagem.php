@@ -14,6 +14,9 @@ if (!isset($_SESSION['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Butterchat</title>
     <link rel="stylesheet" href="./css/chatarea.css">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+    </svg>
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
@@ -39,6 +42,9 @@ if (!isset($_SESSION['id'])) {
 				<p><?php echo $dados['status']; ?></p>
 			</div>
 			</div>
+            <a href="perfil.php?usuario_id=<?php echo $_SESSION['id'];?>" class="perfil"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+            </svg></a>
 			<a href="../Model/logout.php?logout_id=<?php echo $dados['usuario_id']; ?>" class="logout">Sair</a>
 		</header>
         <br>
@@ -47,7 +53,7 @@ if (!isset($_SESSION['id'])) {
 		</div>
 		</section>
     </div>
-    <div class="wrapper" style="width: 70vw; max-width:100%;">
+    <div class="wrapper" style="width: 50vw; max-width:100%;">
         <section class="chat-area">
             <header>
             <header>
@@ -56,7 +62,7 @@ if (!isset($_SESSION['id'])) {
                 if(!isset($_GET['usuario_id'])){
                     ?>
                     <div class="semusuario" style="height: 85vh;">
-                        <h1>Selecione um contato para iniciar uma conversa!</h1>
+                        <h1>Selecione um contato para iniciar uma conversa!!</h1>
                     </div>
                 <?php
                 }
@@ -97,6 +103,38 @@ if (!isset($_SESSION['id'])) {
                 }
                 ?>
             
+    </div>
+    <div class="perfilusuario" style="background: #fff; width: 20vw;height:93.5vh; border-radius: 16px;border: 1px solid pink;">
+                    <?php
+                        if(!isset($_GET['usuario_id']))
+                        {
+                            ?>
+                            <div class="semusuario" style="height: 85vh;">
+                                <h1>Perfil selecionado será exibido aqui</h1>
+                            </div>
+                        <?php
+                        }
+                        else
+                        {
+                            $perfilQ = "SELECT * FROM `usuario` WHERE usuario_id = '{$_GET['usuario_id']}'";
+                            $sql = mysqli_query($conexao, $perfilQ);
+                            if(!$perfilQ)
+                            {
+                                echo "conexao falhou";
+                            }
+                            else
+                            {
+                                    $dados = mysqli_fetch_assoc($sql);
+                            }
+                            ?>
+                            <img src="../img/<?php echo $dados['foto']; ?>" alt="" style="object-fit: cover;border-radius: 50%;border: 5px solid pink;width:120px;height:120px;">
+                            <h1 style="color: gray;"><?php echo $dados['nome']." ".$dados['sobrenome']?></h1>
+                            <div class="txtfield">
+                            <label for="nome">Bio: <?php $dados['Bio']?></label>
+                            </div>
+                            <?php
+                        }
+                    ?> 
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./script/mensagem.js"></script>
