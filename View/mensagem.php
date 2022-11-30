@@ -56,7 +56,7 @@ if (!isset($_SESSION['id'])) {
                 if(!isset($_GET['usuario_id'])){
                     ?>
                     <div class="semusuario" style="height: 85vh;">
-                        <h1>Selecione um contato para iniciar uma conversa</h1>
+                        <h1>Selecione um contato para iniciar uma conversa!</h1>
                     </div>
                 <?php
                 }
