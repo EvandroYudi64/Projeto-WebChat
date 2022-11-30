@@ -39,7 +39,7 @@ if(!isset($_SESSION['id'])){
 			<a href="../Model/logout.php?logout_id=<?php echo $dados['usuario_id']; ?>" class="logout">Sair</a>
 		</header>
 		<div class="users-list" id="contatosOn">
-	
+				
 		</div>
 		</section>
 	</div>

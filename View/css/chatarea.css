@@ -11,19 +11,29 @@ body{
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #f7f7f7;
+  background: #3c3c3c;
   padding: 0 10px;
 }
 .wrapper{
   background: #fff;
-  max-width: 450px;
-  width: 100%;
+  width: 70vw;
   border-radius: 16px;
   border: 1px solid pink;
   box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
               0 32px 64px -48px rgba(0,0,0,0.5);
 }
-
+.contatos{
+  background: #fff;
+  width: 30vw;
+  height: 93.5vh;
+}
+.contatos img{
+  object-fit: cover;
+  border-radius: 50%;
+}
+.container{
+  display: flex;
+}
 /* Login & Signup Form CSS Start */
 .form{
   padding: 25px 30px;

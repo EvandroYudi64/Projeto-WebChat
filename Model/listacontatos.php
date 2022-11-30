@@ -1,5 +1,4 @@
 <?php
-// include config file
 include_once("../conexao.php");
 session_start();
 $sql = "SELECT * FROM `usuario` WHERE usuario_id != '{$_SESSION["id"]} ORDER BY status DESC'";

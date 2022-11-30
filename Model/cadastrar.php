@@ -57,8 +57,6 @@ if(isset($_POST['cadastro'])){
                     $uniqueImageName = $random . $time;
 
                     move_uploaded_file($imagemTempNome, "../img/" . $uniqueImageName);
-
-                    // user status
                     $status = "Offline";
 
                     $insertQuery = "INSERT INTO `usuario` (nome,sobrenome,email,senha,foto,status)
