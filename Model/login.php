@@ -5,42 +5,43 @@ include("../conexao.php");
 if(isset($_POST['login'])){
     $email = mysqli_real_escape_string($conexao, $_POST['email']);
     $senha = md5($_POST['senha']);
-    $sql = "SELECT * FROM `usuario` WHERE email = '$email'";
-    $sqlquery = mysqli_query($conexao, $sql);
+    $emailQuery = "SELECT * FROM `usuario` WHERE email = '$email'";
+    $runEmailQuery = mysqli_query($conexao, $emailQuery);
 
     $get_idQ = "SELECT `usuario_id` as sd FROM `usuario` WHERE email = '$email'";
 
-    $usuario_id = mysqli_query($conexao, $get_idQ);
-    $row = mysqli_fetch_array($usuario_id);
+    $id_user = mysqli_query($conexao, $get_idQ);
+    $row = mysqli_fetch_array($id_user);
     $id_usuario = $row['sd'];
 
-    if(!$sqlquery){
+    if(!$runEmailQuery){
         echo "erro";
     }else{
-        if(mysqli_num_rows($sqlquery) > 0){
-            $senhaQ = "SELECT * FROM `usuario` WHERE email = '$email' AND senha = '$senha'";
-            $senhaquery = mysqli_query($conexao, $senhaQ);
+        if(mysqli_num_rows($runEmailQuery) > 0){
+            $passwordQuery = "SELECT * FROM `usuario` WHERE email = '$email' AND senha = '$senha'";
+            $runPasswordQuery = mysqli_query($conexao, $passwordQuery);
 
-            if(!$senhaquery){
+            if(!$runPasswordQuery){
                 echo "erro";
             }else{
-                if(mysqli_num_rows($senhaquery) > 0){
-                    $dados = mysqli_fetch_assoc($senhaquery);
+                if(mysqli_num_rows($runPasswordQuery) > 0){
+                    $fetchData = mysqli_fetch_assoc($runPasswordQuery);
                     $status = "Online";
-                    $sqlstatus= "UPDATE usuario SET status = '{$status}' WHERE usuario_id = '{$id_usuario}'";
-                    $sqlstatusQ = mysqli_query($conexao, $sqlstatus);
-                    if(!$sqlstatusQ){
+                    $statusBol = 1;
+                    $statusQuery = "UPDATE usuario SET status = '{$status}', statusBol = '{$statusBol}' WHERE usuario_id = '{$id_usuario}'";
+                    $runStatusQuery = mysqli_query($conexao, $statusQuery);
+                    if(!$runStatusQuery){
                         echo "erro";
                     }else{
                         $_SESSION['id'] = $id_usuario;
                         header("location: ../View/mensagem.php");
                     }
                 }else{
-                    echo "Senha incorreta";
+                    echo "Senha errada";
                 }
             }
         }else{
-            echo "Email invalido";
+            echo "Email errado";
         }
     }
 }

@@ -3,8 +3,6 @@ include_once("../conexao.php");
 session_start();
 $outgoingid = $_SESSION['id'];
 $incomingid = mysqli_real_escape_string($conexao, $_POST['incomingid']);
-
-// get message query
 $getMsgQuery = "SELECT * FROM `mensagem` LEFT JOIN `usuario` ON mensagem.saida = usuario.usuario_id WHERE saida = '{$outgoingid}' AND entrada = '{$incomingid}' OR saida = '{$incomingid}' AND entrada = '{$outgoingid}'";
 $runGetMsgQuery = mysqli_query($conexao, $getMsgQuery);
 if(!$runGetMsgQuery){
@@ -25,7 +23,7 @@ if(!$runGetMsgQuery){
             }
         }
     }else{
-        echo '<div id="errors">Diga olá!</div>';
+        echo '<div id="errors" style"justify-content:center;">Diga olá!</div>';
     }
 }
 ?> 

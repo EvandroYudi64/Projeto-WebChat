@@ -2,7 +2,7 @@
 
 include_once("../conexao.php");
 
-    while($row = mysqli_fetch_assoc($query)){
+    while($campo = mysqli_fetch_assoc($query)){
         $sql2 = "SELECT * FROM mensagem WHERE (entrada = {$row['usuario_id']}
                 OR saida = {$row['usuario_id']}) AND (saida = {$_SESSION["id"]} 
                 OR entrada = {$_SESSION["id"]}) ORDER BY id_mensagem DESC LIMIT 1";
