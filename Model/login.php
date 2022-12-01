@@ -5,42 +5,51 @@ include("../conexao.php");
 if(isset($_POST['login'])){
     $email = mysqli_real_escape_string($conexao, $_POST['email']);
     $senha = md5($_POST['senha']);
-    $emailQuery = "SELECT * FROM `usuario` WHERE email = '$email'";
-    $runEmailQuery = mysqli_query($conexao, $emailQuery);
+    $sql =  mysqli_query($conexao, "SELECT * FROM `usuario` WHERE email = '$email'");
+    $sql2 = mysqli_query($conexao,"SELECT `usuario_id` FROM `usuario` WHERE email = '$email'");
+    $row = mysqli_fetch_array($sql2);
+    $id_usuario = $row['usuario_id'];
 
-    $get_idQ = "SELECT `usuario_id` as sd FROM `usuario` WHERE email = '$email'";
-
-    $id_user = mysqli_query($conexao, $get_idQ);
-    $row = mysqli_fetch_array($id_user);
-    $id_usuario = $row['sd'];
-
-    if(!$runEmailQuery){
+    if(!$sql)
+    {
         echo "erro";
-    }else{
-        if(mysqli_num_rows($runEmailQuery) > 0){
-            $passwordQuery = "SELECT * FROM `usuario` WHERE email = '$email' AND senha = '$senha'";
-            $runPasswordQuery = mysqli_query($conexao, $passwordQuery);
+    }
+    else
+    {
+        if(mysqli_num_rows($sql) > 0)
+        {
+            $sqlsenha = mysqli_query($conexao, "SELECT * FROM `usuario` WHERE email = '$email' AND senha = '$senha'");
 
-            if(!$runPasswordQuery){
+            if(!$sqlsenha)
+            {
                 echo "erro";
-            }else{
-                if(mysqli_num_rows($runPasswordQuery) > 0){
-                    $fetchData = mysqli_fetch_assoc($runPasswordQuery);
+            }
+            else
+            {
+                if(mysqli_num_rows($sqlsenha) > 0)
+                {
+                    $dados = mysqli_fetch_assoc($sqlsenha);
                     $status = "Online";
                     $statusBol = 1;
-                    $statusQuery = "UPDATE usuario SET status = '{$status}', statusBol = '{$statusBol}' WHERE usuario_id = '{$id_usuario}'";
-                    $runStatusQuery = mysqli_query($conexao, $statusQuery);
-                    if(!$runStatusQuery){
+                    $sql3 =  mysqli_query($conexao, "UPDATE usuario SET status = '{$status}', statusBol = '{$statusBol}' WHERE usuario_id = '{$id_usuario}'");
+                    if(!$sql3)
+                    {
                         echo "erro";
-                    }else{
+                    }
+                    else
+                    {
                         $_SESSION['id'] = $id_usuario;
                         header("location: ../View/mensagem.php");
                     }
-                }else{
+                }
+                else
+                {
                     echo "Senha errada";
                 }
             }
-        }else{
+        }
+        else
+        {
             echo "Email errado";
         }
     }

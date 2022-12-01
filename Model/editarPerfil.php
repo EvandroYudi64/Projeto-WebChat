@@ -3,10 +3,12 @@ session_start();
 include("../conexao.php");
 if(isset($_POST['salvar']))
 {
+    $sql = mysqli_query($conexao,"SELECT nome, sobrenome,Bio,foto FROM `usuario` WHERE usuario_id = '{$_SESSION['id']}'");
+    $row=mysqli_fetch_array($sql);
     if(empty($_POST["nome"]))
     {
-        $sqlnome = mysqli_query($conexao,"SELECT nome FROM `usuario` WHERE usuario_id = '{$_SESSION['id']}'");
-        $nome = $sqlnome;
+        $nome = $row['nome'];
+
     }
     else
     {
@@ -14,8 +16,7 @@ if(isset($_POST['salvar']))
     } 
     if(empty($_POST["sobrenome"]))
     {
-        $sqlsobrenome = mysqli_query($conexao,"SELECT sobrenome FROM `usuario` WHERE usuario_id = '{$_SESSION['id']}'");
-        $sobrenome = $sqlsobrenome;
+        $sobrenome = $row['sobrenome'];
     }
     else
     {
@@ -23,26 +24,24 @@ if(isset($_POST['salvar']))
     }
     if(empty($_POST["bio"]))
     {
-        $sqlbio = mysqli_query($conexao,"SELECT Bio FROM `usuario` WHERE usuario_id = '{$_SESSION['id']}'");
-        $Bio = $sqlbio;
+        $Bio = $row['Bio'];
     }
     else
     {
         $Bio = mysqli_real_escape_string($conexao, $_POST["bio"]);
     }
-    if(empty($_FILES["imagem"]))
+    if($_FILES['imagem']['error'] == 4)
     {
-        $sqlfoto = mysqli_query($conexao,"SELECT foto FROM `usuario` WHERE usuario_id = '{$_SESSION['id']}'");
-        $foto = $sqlfoto;
+        $foto = $row['foto'];
         $salvar= "UPDATE usuario SET nome = '{$nome}', sobrenome = '{$sobrenome}', Bio = '{$Bio}', foto = '{$foto}' WHERE usuario_id = '{$_SESSION['id']}'";
         $sqlsalvar = mysqli_query($conexao,$salvar);
-        if(!$sqlCad)
+        if(!$sqlsalvar)
         {
             echo "Erro de cadastro";
         }
         else
         {
-            header("location: ../View/FormLogin.php");
+            header("location: ../View/perfil.php");
         }
     }
     else
@@ -58,7 +57,7 @@ if(isset($_POST['salvar']))
     
         if(in_array($diminui,$extensão) == false)
         {
-            echo "Extensão de imagem não compativel";
+            echo "Extensão de imagem não compativel, porfavor use JPG or PNG.";
         }else
         {
             $random = rand(999999999,111111111);
