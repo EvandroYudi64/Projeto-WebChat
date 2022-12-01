@@ -18,26 +18,26 @@
         <form action="../Model/cadastrar.php" enctype="multipart/form-data" method="POST" id="DadosCad">
             <div class="formCad">
                 <div class="card"> 
-                        <h1 class="titleCad">Cadastro</h1><br>
+                        <h1 class="titleCad" style="color: rgb(214, 70, 230);">Cadastro</h1><br>
                         <!-------<div class="erromsg">Mensagem de erro</div>-->
                         <div class="stylename" style="width: 100%;">
                             <div class="txtfield">
-                                <label for="nome">Nome</label>
+                                <label for="nome"style="font-weight: bold;color:rgb(214, 70, 230);">Nome</label>
                                 <input type="text" name="nome" id="nome" placeholder="Nome" required>
                             </div>
                             <div class="txtfield">
-                                <label for="sobrenome">Sobrenome</label>
+                                <label for="sobrenome"style="font-weight: bold;color:rgb(214, 70, 230);">Sobrenome</label>
                                 <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required>
                             </div>
                         </div>
                         <div class="txtfield">
-                            <label for="email">Email</label>
+                            <label for="email"style="font-weight: bold;color:rgb(214, 70, 230);">Email</label>
                             <input type="text" name="email" id="email" placeholder="Email" required>
                         </div>
                         <div class="txtfield">
-                            <label for="senha">Senha</label>
+                            <label for="senha"style="font-weight: bold;color:rgb(214, 70, 230);">Senha</label>
                             <input type="password" name="senha" id="senha" placeholder="Senha" required><br>
-                            <label for="senha">Confirme sua senha</label>
+                            <label for="senha"style="font-weight: bold;color:rgb(214, 70, 230);">Confirme sua senha</label>
                             <input type="password" name="confirmasenha" id="confirmasenha" placeholder="Confirme sua senha" required><br>
                         </div>
                         <div class="txtfield"><input type="file" name="imagem" id="imagem" required></div>

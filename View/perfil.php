@@ -31,22 +31,25 @@ if (!isset($_SESSION['id'])) {
                                 $dados = mysqli_fetch_assoc($sql);
                         }
                     ?>
-                    <img src="../img/<?php echo $dados['foto']; ?>" alt="" style="object-fit: cover;border-radius: 50%;border: 5px solid pink;width:120px;height:120px;">
+                    <img src="../img/<?php echo $dados['foto']; ?>" alt="" style="object-fit: cover;border-radius: 50%;border: 5px solid rgb(237, 86, 206);width:120px;height:120px;">
                     <h1 style="color: gray;"><?php echo $dados['nome']." ".$dados['sobrenome']?></h1>
-                    <div class="txtfield">
-                        <label for="nome">ALterar nome:</label>
+                    <div class="txtfield" style="align-items:center;">
+                        <label for="alterarnome">Alterar nome:</label>
                         <input type="text" name="nome" id="sobrenome" placeholder="<?php echo$dados['nome'];?>" >
                     </div>
-                    <div class="txtfield">
+                    <div class="txtfield" style="align-items:center;">
                         <input type="text" name="sobrenome" id="sobrenome" placeholder="<?php echo$dados['sobrenome'];?>" >
                     </div>
-                    <div class="txtfield">
-                        <label for="nome">Bio: bio aqui</label>
+                    <div class="txtfield" style="align-items:center;">
+                        <label for="Bio">Bio:<?php echo $dados['Bio']?></label>
                         <input type="text" name="bio" id="bio" placeholder="Bio" >
                     </div>
-                    <div class="txtfield"><input type="file" name="imagem" id="imagem"></div>
+                    <div class="txtfield" style="align-items:center;">
+                        <label for="foto" >Alterar foto de perfil:</label>
+                        <input type="file" name="imagem" id="imagem">
+                    </div>
                     <a href="mensagem.php" class="btn-login" style="justify-content: center; text-align:center;">Voltar</a>
-                    <button type="submit" class="btn-login" id="salvar" name="salvar" value="salvar">Salvar</button><br>
+                    <button type="submit" class="btn-login" id="salvar" name="salvar" value="salvar" style="background-color: rgb(237, 86, 206);color:#fff;">Salvar</button><br>
                 </div>
             </div>
         </form>
