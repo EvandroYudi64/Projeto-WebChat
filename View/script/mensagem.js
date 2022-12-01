@@ -1,12 +1,12 @@
 $("#typingArea").on("submit", function(e) {
     e.preventDefault();
-        let formData = new FormData(this);
-        formData.append("send","send");
+        let formDados = new FormData(this);
+        formDados.append("send","send");
         if($("#typingField").val())
         $.ajax({
             type: "POST",
             url: "../Model/mensagens.php",
-            data: formData,
+            data: formDados,
             contentType: false,
             processData: false,
             success: function (response) {
