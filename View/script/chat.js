@@ -1,10 +1,10 @@
 $(document).ready(function(){
     setInterval(function(){
-        let incomingid = $("#entrada").val();
+        let entrada = $("#entrada").val();
         $.ajax({
             type: "post",
-            url: "../Model/getChat.php",
-            data: {incomingid: incomingid},
+            url: "../Model/chat.php",
+            data: {entrada: entrada},
             success: function(response){
                 $("#mainSection").html(response);
             }
