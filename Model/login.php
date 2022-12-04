@@ -8,8 +8,6 @@ if(isset($_POST['login'])){
     $sql =  mysqli_query($conexao, "SELECT * FROM `usuario` WHERE email = '$email'");
     $sql2 = mysqli_query($conexao,"SELECT `usuario_id` FROM `usuario` WHERE email = '$email'");
     $row = mysqli_fetch_array($sql2);
-    $id_usuario = $row['usuario_id'];
-
     if(!$sql)
     {
         echo "erro";
@@ -28,6 +26,7 @@ if(isset($_POST['login'])){
             {
                 if(mysqli_num_rows($sqlsenha) > 0)
                 {
+                    $id_usuario = $row['usuario_id'];
                     $dados = mysqli_fetch_assoc($sqlsenha);
                     $status = "Online";
                     $statusBol = 1;
@@ -39,18 +38,19 @@ if(isset($_POST['login'])){
                     else
                     {
                         $_SESSION['id'] = $id_usuario;
-                        header("location: ../View/mensagem.php");
+                        echo "logado";
+                       // header("location: ../View/mensagem.php");
                     }
                 }
                 else
                 {
-                    echo "Senha errada";
+                    echo "Email ou senha incorretos";
                 }
             }
         }
         else
         {
-            echo "Email errado";
+            echo "Email ou senha incorretos";
         }
     }
 }

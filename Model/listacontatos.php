@@ -1,7 +1,7 @@
 <?php
 include_once("../conexao.php");
 session_start();
-$sql = mysqli_query($conexao, "SELECT * FROM `usuario` WHERE usuario_id != '{$_SESSION["id"]} ORDER BY statusBol ASC'");
+$sql = mysqli_query($conexao, "SELECT * FROM `usuario` WHERE usuario_id != '{$_SESSION["id"]} ORDER BY statusBol DESC'");
 
 if(!$sql)
 {
@@ -11,7 +11,7 @@ else
 {
     if(mysqli_num_rows($sql) == 0)
     {
-        echo '<div id="errors">Nenhum contato disponivel</div>';
+        echo "Nenhum contato disponivel";
     }
     elseif(mysqli_num_rows($sql) > 0)
     {
@@ -66,9 +66,9 @@ else
                 $off = "";
             }
             $contatosOn="";
-            $contatosOn .= '<a href="./mensagem.php?usuario_id='. $campo['usuario_id'] .'">
+            /*$contatosOn .= '<a href="./mensagem.php?usuario_id='. $campo['usuario_id'] .'">
                         <div class="content">
-                        <img src="../img/'. $campo['foto'].'" alt="">
+                        <img src="../img/'. $campo['foto'].'" alt=""style="border: 2px solid rgb(237, 86, 206);">
                         <div class="details">
                             <span>'. $campo['nome']. " " . $campo['sobrenome'] .'</span>
                             <p>'. $enviou . $msg .'</p>
@@ -76,6 +76,17 @@ else
                         </div>
                         <div class="status-dot '. $off .'"><i class="fas fa-circle"></i></div>
                     </a><br>';
+                    */
+                $contatosOn.='<a href="./mensagem.php?usuario_id='. $campo['usuario_id'] .'">
+                <div class="conteudo">
+                <img src="../img/'. $campo['foto'].'" alt=""style="border: 2px solid rgb(237, 86, 206);">
+                <div class="dados">
+                    <span>'. $campo['nome']. " " . $campo['sobrenome'] .'</span>
+                    <p>'. $enviou . $msg .'</p>
+                </div>
+                </div>
+                <div class="status'. $off .'"><i class="fas fa-circle"></i></div>
+            </a><br>';
             echo $contatosOn;
         }
     }

@@ -43,7 +43,6 @@ if(isset($_POST['cadastro']))
                     $senha = md5($_POST["senha"]);
 
                     $imagemNome = $_FILES['imagem']['name'];
-                    $imagemTam = $_FILES['size'];
                     $imagemTempNome = $_FILES['imagem']['tmp_name'];
                     $imageType = $_FILES['imagem']['type'];
 
@@ -54,7 +53,7 @@ if(isset($_POST['cadastro']))
 
                     if(in_array($diminui,$extensão) == false)
                     {
-                        echo "Extensão de imagem não compativel, porfavor use JPG or PNG.";
+                        echo "Extensão de imagem não compativel, use JPG, JPEG ou PNG.";
                     }else
                     {
                         $random = rand(999999999,111111111);
@@ -68,7 +67,8 @@ if(isset($_POST['cadastro']))
                         }
                         else
                         {
-                            header("location: ../View/FormLogin.php");
+                            echo "cadastrado";
+                            //header("location: ../View/FormLogin.php");
                         }
                     }
                 }
