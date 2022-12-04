@@ -13,27 +13,28 @@
     <div class="main" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
         <div class="logo">
             <h1>Butterchat<br></h1>
-            <img src="../img/svg112220-ypi.png"/>
+            <img src="../img/svg112220-ypi.png" style="width: 500px;height:500px;"/>
         </div>
-        <form action="../Model/login.php" method="POST" id="DadosLogin">
+        <form action="#" method="POST" id="DadosLogin">
             <div class="form">
                 <div class="card">
                     <h1 style="color: rgb(214, 70, 230);">Bem vindo!</h1>
-                    <!--<div class="erromsg">Mensagem de erro</div>-->
+                    <div class="erromsg"id="erromsg" hidden></div>
                     <div class="txtfield">
                         <label for="email" style="font-weight: bold;color:rgb(214, 70, 230);">Email</label>
-                        <input type="text" name="email" id="email" placeholder="Email" required>
+                        <input type="email" name="email" id="email" placeholder="Email" required>
                     </div>
                     <div class="txtfield">
                         <label for="senha"style="font-weight: bold;color:rgb(214, 70, 230);">Senha</label>
                         <input type="password" name="senha" id="senha" placeholder="Senha" required>
                     </div>
-                    <button type="submit" class="btn-login" id="login" name="login" value="login">Login</button><br>
+                    <button type="submit" class="btn-cadastrar" id="login" name="login" value="login" style="font-family:Arial, Helvetica, sans-serif;">Login</button><br>
                     <div class="link">Não possui um cadastro? <a href="FormCadastro.php">Registrar-se</a></div>
                 </div>
             </div>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./script/validarLogin.js"></script>
 </body>
 </html>

@@ -13,13 +13,13 @@
     <div class="main">
         <div class="logo">
             <h1>Butterchat<br></h1>
-            <img src="../img/svg112220-ypi.png"/>
+            <img src="../img/svg112220-ypi.png"style="width: 500px;height:500px;"/>
         </div>
-        <form action="../Model/cadastrar.php" enctype="multipart/form-data" method="POST" id="DadosCad">
+        <form action="#" enctype="multipart/form-data" method="POST" id="DadosCad">
             <div class="formCad">
                 <div class="card"> 
                         <h1 class="titleCad" style="color: rgb(214, 70, 230);">Cadastro</h1><br>
-                        <!-------<div class="erromsg">Mensagem de erro</div>-->
+                        <div class="erromsg" id="erromsg" hidden>Mensagem de erro</div>
                         <div class="stylename" style="width: 100%;">
                             <div class="txtfield">
                                 <label for="nome"style="font-weight: bold;color:rgb(214, 70, 230);">Nome</label>
@@ -41,7 +41,6 @@
                             <input type="password" name="confirmasenha" id="confirmasenha" placeholder="Confirme sua senha" required><br>
                         </div>
                         <div class="txtfield"><input type="file" name="imagem" id="imagem" required></div>
-                        <br>
                         <input type="submit" class="btn-cadastrar" name="cadastro" id="cadastro" value="Registrar-se" style="font-family:Arial, Helvetica, sans-serif;">
                         <div class="link">Já possui um cadastro? <a href="FormLogin.php">Entrar</a></div>    
                 </div>
@@ -50,5 +49,6 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./script/validarCad.js"></script>
 </body>
 </html>

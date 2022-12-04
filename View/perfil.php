@@ -41,7 +41,7 @@ if (!isset($_SESSION['id'])) {
                         <input type="text" name="sobrenome" id="sobrenome" placeholder="<?php echo$dados['sobrenome'];?>" >
                     </div>
                     <div class="txtfield" style="align-items:center;">
-                        <label for="Bio">Bio:<?php echo $dados['Bio']?></label>
+                        <label for="Bio" style="font-style: italic;">"<?php echo $dados['Bio']?>"</label>
                         <input type="text" name="bio" id="bio" placeholder="Bio" >
                     </div>
                     <div class="txtfield" style="align-items:center;">
